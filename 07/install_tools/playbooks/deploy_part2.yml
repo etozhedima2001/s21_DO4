@@ -1,0 +1,17 @@
+-
+  name: 'deploy part2'
+  hosts: wc1
+  become: yes
+  tasks:
+    -
+      name: 'copy script'
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/../../../02/main.sh"
+        dest: "/tmp/main.sh"
+        mode: '0644'
+    -
+      name: 'copy script3'
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/../../../03/main.sh"
+        dest: "/tmp/delete.sh"
+        mode: '0644'
